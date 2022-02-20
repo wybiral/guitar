@@ -1,0 +1,116 @@
+<html>
+<head>
+<title>Web Guitar</title>
+<script type="text/javascript" src="js/processing.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/playback.js"></script>
+<script type="text/javascript" src="js/musical.js"></script>
+<style>
+h3 {
+    display: inline-block;
+    margin-top: 0;
+    margin-right: 20px;
+    margin-bottom: 0px;
+}
+.section {
+    margin-bottom: 20px;
+}
+#editor {
+    margin-top: 10px;
+    overflow-x: auto;
+    position: relative;
+}
+#editor table {
+    white-space: nowrap;
+    border-collapse: collapse;
+}
+#editor .beat {
+    width: 20px;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+#cursor {
+    display: none;
+    background-color: rgba(119, 153, 255, 0.5);
+    border: solid 1px #79f;
+    position: absolute;
+    width: 20px;
+    height: 118px;
+}
+#editor .beat .duration {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+#editor .beat .duration:hover {
+    background-color: rgba(119, 153, 255, 0.5);
+    border: solid 1px #79f;
+}
+#editor .beat:hover {
+    background: #eee;
+}
+#editor .beat .string {
+    width: 20px;
+    height: 20px;
+    background: url("images/string.png");
+    text-align: center;
+}
+#editor .beat .string input {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    outline-width: 0;
+    border: solid 1px black;
+}
+
+#editor .beat .string span {
+    background-color: #fff;
+}
+</style>
+</head>
+<body>
+<div id="main">
+    <div class="section">
+        <h3>Playback:</h3>
+        <input type="range" min="0" max="5" value="1" step="0.1" id="volume" title="Volume/Gain" />
+        <input type="button" value="Play" id="play" />
+    </div>
+    <div class="section">
+        <h3>Track:</h3>
+        <select id="examples">
+            <option value="">Load example...</option>
+        </select>
+        Tempo: </td><td><input type="text" value="120" id="tempo">
+        <div id="editor">
+            <div id="cursor"></div>
+            <table>
+                <tr id="editor-strings">
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="section">
+        <h3>Instrument:</h3>
+        <div>
+            Strum speed: <input type="range" min="0" max="1" value="1" step="0.01" id="strum-speed">
+        </div>
+        <textarea rows="15" cols="80" style="margin-top: 20px" id="instrument">var period = Math.floor(rate / frequency);
+var decay = 0.993 / 2;
+var length = buffer.length - period;
+var noiseScale = 3.0 / period;
+
+// Random excitation
+for (var i = 0; i < period; i++) {
+    buffer[i] = noise(i * noiseScale) * 2 - 1;
+}
+
+// Lowpass ringbuffer
+for (var i = 0; i < length; i++) {
+    buffer[i + period] = (buffer[i] + buffer[i + 1]) * decay;
+}</textarea>
+        </div>
+</div>
+</body>
+</html>
