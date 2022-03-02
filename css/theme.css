@@ -1,0 +1,165 @@
+* {
+    border: none;
+    box-sizing: border-box;
+    color: inherit;
+    font: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    margin: 0;
+    outline: none;
+    padding: 0;
+    text-decoration: none;
+    vertical-align: top;
+}
+
+body {
+    font-size: 100%;
+    padding: 0em 5em;
+}
+
+nav {
+    padding: 0.5em 0em;
+}
+
+nav div {
+    margin-bottom: 5px;
+}
+
+nav button {
+    font-size: 120%;
+    padding: 0.05em 0.5em;
+    border: 1px solid #777;
+    cursor: pointer;
+}
+
+nav button + button {
+    margin-left: 5px;
+}
+
+nav button.current {
+    background: #999;
+}
+
+main {
+    width: 100%;
+    white-space: nowrap;
+    overflow-x: auto;
+    margin-top: 1em;
+    position: relative;
+}
+
+main .track {
+    display: inline-block;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+}
+
+main .playback {
+    position: absolute;
+    width: 10px;
+    background: #77f;
+    opacity: 0.5;
+}
+
+.length {
+    height: 1.5em;
+}
+
+.length, .note {
+    text-align: center;
+}
+
+.note {
+    width: 100%;
+    height: 1.25em;
+    line-height: 1.25em;
+    position: relative;
+    text-align: center;
+    cursor: text;
+}
+
+.note .string {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 0px;
+    border-top: 1px solid #000;
+}
+
+.note .container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.note .container .value {
+    display: inline-block;
+    background: #fff;
+    padding: 0em 0.1em;
+}
+
+.note input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 1em;
+    height: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.beat {
+    background: #fff;
+    position: relative;
+    width: 1.5em;
+    height: 100%;
+    display: inline-block;
+}
+
+.beat.playing,
+.beat.playing .note .value {
+    background: #aaf;
+}
+
+.beat.𝅝 {
+    width: 4em;
+}
+.beat.𝅗𝅥 {
+    width: 3em;
+}
+.beat.𝅘𝅥 {
+    width: 2em;
+}
+.beat.𝅘𝅥𝅮 {
+    width: 1.5em;
+}
+.beat.𝅘𝅥𝅯 {
+    width: 1em;
+}
+.beat.𝅘𝅥𝅰 {
+    width: 1em;
+}
+.beat.𝅘𝅥𝅱 {
+    width: 1em;
+}
+.beat.𝅘𝅥𝅲 {
+    width: 1em;
+}
+
+.bar {
+    position: relative;
+    display: inline-block;
+}
+
+.bar.over .length {
+    color: #f00;
+}
+
+.bar + .bar {
+    border-left: 1px solid #000;
+}
