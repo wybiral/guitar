@@ -79,7 +79,7 @@ class Editor {
         let timestamp = 0.0;
         let skipping = this.cursor.active;
         this.track.bars.forEach(bar => {
-            const timeFactor = 120 / bar.tempo;
+            const timeFactor = (30 * bar.signature[0]) / bar.tempo;
             bar.beats.forEach(beat => {
                 if (skipping) {
                     if (beat == this.cursor.currentBeat) {
