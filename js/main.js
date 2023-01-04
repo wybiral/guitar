@@ -7,6 +7,7 @@ window.onload = () => {
     for (let i = 0; i < LENGTHS.length; i++) {
         const el = document.createElement('button');
         el.innerText = LENGTHS[i];
+        el.title = LENGTH_NAMES[i];
         document.querySelector('#lengths').appendChild(el);
         lengthButtons.push(el);
         el.onmousedown = evt => {
